@@ -62,7 +62,7 @@ window.onload = () => {
             case `${SPOCK}-${SCISSORS}`:
             case `${LIZARD}-${PAPER}`:
             case `${LIZARD}-${SPOCK}`:
-                result = 'COMPUTER WIN 😔💔 🤖🥇';
+                result = 'COMPUTER WIN 🖥️ 🙆🏽‍♂️🤷🏽😔🥇';
                 break;
             case `${ROCK}-${PAPER}`:
             case `${ROCK}-${SPOCK}`:
@@ -74,7 +74,7 @@ window.onload = () => {
             case `${SPOCK}-${LIZARD}`:
             case `${LIZARD}-${ROCK}`:
             case `${LIZARD}-${SCISSORS}`:
-                result = 'YOU WIN ☺️🥇 🤖💔';
+                result = 'YOU WIN 👏🏻☺️🥇 🤝';
                 break;
             default:
                 result = 'SOMETHING WRONG. TRY AGAIN. 🐛';

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <span> MY CHOICE </span>
+    <span> YOUR CHOICE </span>
     <div id="user-options">
       <div>
         <input type="radio" id="1" name="option" class="user-option" />
@@ -37,73 +37,23 @@
     <div id="computer-choice">💭</div>
     <button id="play">▶️</button>
     <div id="output"></div>
+    <!-- Game Timer and Copyright-->
+    <span> GAME TIMER </span>
+    <div>
+      <h6>
+        It's been <span id="timer">0</span> seconds since you loaded the game
+      </h6>
+      <h6>Copyright © Rock Scissors Paper Spock Lizard</h6>
+    </div>
 
-    <!-- Social Media-->
-    <footer>
-      <ul id="social-networks">
-        <li>
-          <a
-            href="https://www.facebook.com/"
-            target="_blank"
-            rel="noopener"
-            aria-label="Visit our Facebook page (opens in a new tab)"
-          >
-            <i class="fa-brands fa-facebook"></i>
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.twitter.com/"
-            target="_blank"
-            rel="noopener"
-            aria-label="Visit our Twitter page (opens in a new tab)"
-          >
-            <i class="fa-brands fa-twitter-square"></i>
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.youtube.com/"
-            target="_blank"
-            rel="noopener"
-            aria-label="Visit our YouTube page (opens in a new tab)"
-          >
-            <i class="fa-brands fa-youtube-square"> </i
-          ></a>
-        </li>
-        <li>
-          <a
-            href="https://www.instagram.com/"
-            target="_blank"
-            rel="noopener"
-            aria-label="Visit our Instagram page (opens in a new tab)"
-          >
-            <i class="fa-brands fa-instagram"></i
-          ></a>
-        </li>
-      </ul>
-    </footer>
-
-    <!-- copyright-->
-    <h6>
-      It's been <span id="timer">0</span> seconds since you loaded the game
-    </h6>
-    <p>Copyright © Rock Paper Scissors Spock Lizard</p>
-
-    <!-- Font Awesome kit -->
-    <script>
-      src = "https://kit.fontawesome.com/090a679e88.js";
-    </script>
-
-    <!-- Game Timmer -->
+    <script type="text/javascript" src="./index.js"></script>
     <script>
       setInterval(function () {
         let timerElement = document.getElementById("timer");
         let currentTime = timerElement.innerHTML;
         currentTime++;
         timerElement.innerHTML = currentTime;
-      }, 1000);
+      }, 2000);
     </script>
-    <script type="text/javascript" src="./index.js"></script>
   </body>
 </html>

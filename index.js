@@ -10,7 +10,7 @@ const LIZARD = 'LIZARD';
 const OPTIONS = {
     1: ROCK,
     2: SCISSORS,
-    3: PAPER
+    3: PAPER,
     4: SPOCK,
     5: LIZARD
 };
@@ -25,9 +25,6 @@ const OPTIONS2EMOJI = {
 let userChoiceID = '';
 
 window.onload = () => {
-    // your code here
-    const output = document.querySelector('#output');
-
     const userOptions = document.querySelectorAll('.user-option');
 
     userOptions.forEach(el => el.addEventListener('click', event => {
@@ -84,6 +81,5 @@ window.onload = () => {
         }
 
         output.innerHTML = result;
-
     });
 };

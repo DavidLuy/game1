@@ -1,63 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GAME</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+    <title>Rock Paper Scissors Spock Lizard</title>
+    <title>JavaScript Timer</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
     <span> MY CHOICE </span>
     <div id="user-options">
-
-
+      <div>
+        <input type="radio" id="1" name="option" class="user-option" />
+        <label for="1">⛰️</label>
+      </div>
+      <div>
+        <input type="radio" id="2" name="option" class="user-option" />
+        <label for="2">✂️</label>
+      </div>
+      <div>
+        <input type="radio" id="3" name="option" class="user-option" />
+        <label for="3">🧻</label>
+      </div>
+      <div>
+        <input type="radio" id="4" name="option" class="user-option" />
+        <label for="4">🖖</label>
+      </div>
+      <div>
+        <input type="radio" id="5" name="option" class="user-option" />
+        <label for="5">🦎</label>
+      </div>
     </div>
-    <input type="text">
-    <label for=""></label>
-    <h1></h1>
-    <div class="">
-        <div></div>
-        <span> COMPUTER CHOICE </span>
-        <div id="computer-choice">💭</div>
-        <button id="play">▶️</button>
-        <div id="output"></div>
+    <span> COMPUTER CHOICE </span>
+    <div id="computer-choice">💭</div>
+    <button id="play">▶️</button>
+    <div id="output"></div>
 
-    </div>
-    <div class="">
-
-    </div>
-    <div class="" id="">
-
-    </div>
+    <!-- Social Media-->
     <footer>
-        <ul id="social-networks">
-            <li>
-                <a href="https://www.facebook.com/" target="_blank" rel="noopener"
-                    aria-label="Visit our Facebook page (opens in a new tab)">
-                    <i class="fa-brands fa-facebook"></i></a>
-            </li>
-            <li>
-                <a href="https://www.twitter.com/" target="_blank" rel="noopener"
-                    aria-label="Visit our Twitter page (opens in a new tab)">
-                    <i class="fa-brands fa-twitter-square"></i></a>
-            </li>
-            <li>
-                <a href="https://www.youtube.com/" target="_blank" rel="noopener"
-                    aria-label="Visit our YouTube page (opens in a new tab)">
-                    <i class="fa-brands fa-youtube-square"></i></a>
-            </li>
-            <li>
-                <a href="https://www.instagram.com/" target="_blank" rel="noopener"
-                    aria-label="Visit our Instagram page (opens in a new tab)">
-                    <i class="fa-brands fa-instagram"></i></a>
-            </li>
-        </ul>
+      <ul id="social-networks">
+        <li>
+          <a
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Visit our Facebook page (opens in a new tab)"
+          >
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.twitter.com/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Visit our Twitter page (opens in a new tab)"
+          >
+            <i class="fa-brands fa-twitter-square"></i>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.youtube.com/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Visit our YouTube page (opens in a new tab)"
+          >
+            <i class="fa-brands fa-youtube-square"> </i
+          ></a>
+        </li>
+        <li>
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Visit our Instagram page (opens in a new tab)"
+          >
+            <i class="fa-brands fa-instagram"></i
+          ></a>
+        </li>
+      </ul>
     </footer>
+
     <!-- copyright-->
+    <h6>
+      It's been <span id="timer">0</span> seconds since you loaded the game
+    </h6>
     <p>Copyright © Rock Paper Scissors Spock Lizard</p>
+
     <!-- Font Awesome kit -->
-    <script type="text/javascript" src="./index.js"
-    src="https://kit.fontawesome.com/090a679e88.js" crossorigin="anonymous"></script>
-</body>
+    <script>
+      src = "https://kit.fontawesome.com/090a679e88.js";
+    </script>
+
+    <!-- Game Timmer -->
+    <script>
+      setInterval(function () {
+        let timerElement = document.getElementById("timer");
+        let currentTime = timerElement.innerHTML;
+        currentTime++;
+        timerElement.innerHTML = currentTime;
+      }, 1000);
+    </script>
+  </body>
 </html>

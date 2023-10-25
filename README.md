@@ -1,6 +1,6 @@
 ![Rock Paper Scissors Spock Lizard logo](http// .png)
 
-##Rock Paper Scissors Spock Lizard
+# Rock Paper Scissors Spock Lizard.
 
 Welcome to Rock Paper Scissors Spock Lizard,
 
@@ -19,4 +19,4 @@ To run a backend Python file, type `python3 app.py`, if your Python file is name
 A button should appear to click: _Open Preview_ or _Open Browser_.
 
 
-Enjoy the game!
+### Enjoy the game!

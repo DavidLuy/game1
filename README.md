@@ -1,4 +1,4 @@
-![Rock Paper Scissors Spock Lizard logo](http// .png)
+![Rock Paper Scissors Spock Lizard ⛰️✂️🧻🖖🦎](https://davidluy.github.io/game1/)
 
 # Rock Paper Scissors Spock Lizard.
 
@@ -26,4 +26,17 @@ Spock vaporizes Rock
 
 
 Gam
+## Running the Code in Codeanywhere!
+To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+python3 -m http.server
+
+A button should appear to click: Open Preview or Open Browser.
+
+To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for python3 -m http.server.
+
+http_server
+
+To run a backend Python file, type python3 app.py, if your Python file is named app.py of course.
+
+A button should appear to click: Open Preview or Open Browser.
 ### Enjoy the game!

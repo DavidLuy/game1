@@ -1,3 +1,58 @@
 html {
-    font-size: 38px;
+    font-size: 40px;
 }
+body {
+    background-color: rgba(245, 198, 121, 0.053);
+    color: #000407;
+    text-align: center;
+}
+
+.game-area {
+    background-color: #6ec0fb;
+    box-sizing: border-box;
+    width: 85%;
+    height: 65vh;
+    max-height: auto;
+    max-width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1%;
+}
+
+.score-area {
+    margin: 5px auto;
+    width: 60%;
+    font-size: 1.2rem;
+}
+
+#score {
+    color: green;
+    font-weight: bold;
+}
+
+#incorrect {
+    color: red;
+    font-weight: bold;
+}
+
+.scores {
+    display: inline-block;
+    padding: 25px;
+}
+
+@media (max-width: 414px) {
+    .game-area {
+        width: 100%;
+    }
+    
+ .scores {
+     margin: 0.5em auto;
+     display: block;
+     padding: 5px;
+ }
+
+
+@media (max-width: 320px) {
+            .game-area {
+                height: 70vh;
+            }

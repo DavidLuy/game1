@@ -78,8 +78,8 @@ window.onload = () => {
                 break;
             default:
                 result = 'SOMETHING WRONG. TRY AGAIN. 🐛';
-        }
-
+                
         output.innerHTML = result;
     });
+
 };

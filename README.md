@@ -1,6 +1,4 @@
-![Rock Paper Scissors Spock Lizard ⛰️✂️🧻🖖🦎](https://davidluy.github.io/game1/)
-
-# Rock Paper Scissors Spock Lizard.
+# Rock Paper Scissors Spock Lizard ⛰️✂️🧻🖖🦎:
 
 Welcome to Rock Paper Scissors Spock Lizard,
 
@@ -25,8 +23,12 @@ Spock vaporizes Rock
 (and as it always has) Rock crushes Scissors
 
 
-Gam
-## Running the Code in Codeanywhere!
+## Game
+This game was a suggetion from mentor as to test the knowledge achieved in project two  and practicing coding with Java script.
+I also want to thank Mr Wes Bos , Pavel Soldatov,  for his tutorials about keydown/keyup events. His solution is what I used in this project for key presses, albeit with some modifications.
+
+### Running the Code in Codeanywhere!
+Code Institute template used.
 To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
 python3 -m http.server
 

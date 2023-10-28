@@ -11,17 +11,15 @@ body {
 }
 
 .container {
-    background-color: ;
-    color: white;
+    background-color: #1a3c40;
     box-sizing: border-box;
     width: 85%;
-    height: 85vh;
+    height: 75vh;
     max-height: 600px;
     max-width: 830px;
-    margin-bottom: auto;
     margin-left: auto;
     margin-right: auto;
-    padding: 5%;
+    padding: 2%;
 }
 
 .header,

@@ -1,85 +1,168 @@
-function getComputerChoice() {
-    return Math.floor((Math.random() * 5) + 1);
+const vocab = {
+    rock: "rock",
+    paper: "paper",
+    scissors: "scissors",
+    lizard: "lizard",
+    spock: "Spock",
+};
+
+const rock = {
+    name: vocab.rock,
+    emoji: "👊",
+    loosesTo: [vocab.paper, vocab.spock],
+};
+const paper = {
+    name: vocab.paper,
+    emoji: "🤚",
+    loosesTo: [vocab.scissors, vocab.lizard],
+};
+const scissors = {
+    name: vocab.scissors,
+    emoji: "✌️",
+    loosesTo: [vocab.rock, vocab.spock],
+};
+const lizard = {
+    name: vocab.lizard,
+    emoji: "🦎",
+    loosesTo: [vocab.scissors, vocab.rock],
+};
+const spock = {
+    name: vocab.spock,
+    emoji: "🖖",
+    loosesTo: [vocab.paper, vocab.lizard],
+};
+
+const entities = [rock, paper, scissors, lizard, spock];
+
+let buttons = document.querySelectorAll(".btn");
+let log = document.querySelector(".log");
+let para = document.querySelector(".log > p");
+
+let playerScore = 0;
+let computerScore = 0;
+
+/* utility functions */
+function random(number) {
+    return Math.floor(Math.random() * number);
 }
 
-const ROCK = 'ROCK';
-const SCISSORS = 'SCISSORS';
-const PAPER = 'PAPER';
-const SPOCK = 'SPOCK';
-const LIZARD = 'LIZARD';
-const OPTIONS = {
-    1: ROCK,
-    2: SCISSORS,
-    3: PAPER,
-    4: SPOCK,
-    5: LIZARD
-};
-const OPTIONS2EMOJI = {
-    1: '⛰️',
-    2: '✂️',
-    3: '🧻',
-    4: '🖖',
-    5: '🦎'
-};
+function computerPlay(array) {
+    let randomIndex = random(array.length);
+    return array[randomIndex];
+}
 
-let userChoiceID = '';
+["click", "keyup"].forEach((evt) => document.addEventListener(evt, playRound));
 
-window.onload = () => {
-    const userOptions = document.querySelectorAll('.user-option');
+/* Removing listener upon reaching 5 victories during playRound */
+function removeListener() {
+    ["click", "keyup"].forEach((evt) =>
+        document.removeEventListener(evt, playRound)
+    );
+}
 
-    userOptions.forEach(el => el.addEventListener('click', event => {
-        userChoiceID = event.target.id;
-    }));
+/* Showing current and final score */
+function showCurrentScore() {
+    return `Computer: ${computerScore}, Player: ${playerScore}`;
+}
 
-    const playButton = document.querySelector('#play');
+function showFinalScore(computer, player) {
+    if (playerScore === 5)
+        para.innerText = `Computer${computer} vs Player${player}. You have won!\n Final score => ${showCurrentScore()}.`;
+    if (computerScore === 5)
+        para.innerText = `Computer${computer} vs Player${player}. Computer has won!\n Final score => ${showCurrentScore()}.`;
+}
 
-    playButton.addEventListener('click', () => {
-        const computerChoiceID = getComputerChoice();
-        const computerChoice = OPTIONS[computerChoiceID];
-        const computerChoiceElement = document.querySelector('#computer-choice');
-        const output = document.querySelector('#output');
-        const userChoice = OPTIONS[userChoiceID];
+function playRound(e) {
+    let playerSelection;
+    let playerSelectionName;
+    let playerSelectionEmoji;
 
-        let result = '';
+    // Checking for keyboard or pointer event
+    if (e instanceof KeyboardEvent) {
+        let btnWithKey = document.querySelector(`.btn[data-code="${e.code}"]`);
+        if (!btnWithKey || e.ctrlKey) return;
 
-        computerChoiceElement.innerHTML = OPTIONS2EMOJI[computerChoiceID];
+        playerSelection = btnWithKey;
+        playerSelectionName = btnWithKey.value;
+        playerSelectionEmoji = btnWithKey.dataset.emoji;
 
-        switch (`${computerChoice}-${userChoice}`) {
-            case `${ROCK}-${ROCK}`:
-            case `${SCISSORS}-${SCISSORS}`:
-            case `${PAPER}-${PAPER}`:
-            case `${SPOCK}-${SPOCK}`:
-            case `${LIZARD}-${LIZARD}`:
-                result = 'TIE 👔';
-                break;
-            case `${ROCK}-${SCISSORS}`:
-            case `${ROCK}-${LIZARD}`:
-            case `${SCISSORS}-${PAPER}`:
-            case `${SCISSORS}-${LIZARD}`:
-            case `${PAPER}-${ROCK}`:
-            case `${PAPER}-${SPOCK}`:
-            case `${SPOCK}-${ROCK}`:
-            case `${SPOCK}-${SCISSORS}`:
-            case `${LIZARD}-${PAPER}`:
-            case `${LIZARD}-${SPOCK}`:
-                result = 'COMPUTER WIN 🖥️ 🙆🏽‍♂️🤷🏽😔🥇';
-                break;
-            case `${ROCK}-${PAPER}`:
-            case `${ROCK}-${SPOCK}`:
-            case `${SCISSORS}-${ROCK}`:
-            case `${SCISSORS}-${SPOCK}`:
-            case `${PAPER}-${SCISSORS}`:
-            case `${PAPER}-${LIZARD}`:
-            case `${SPOCK}-${PAPER}`:
-            case `${SPOCK}-${LIZARD}`:
-            case `${LIZARD}-${ROCK}`:
-            case `${LIZARD}-${SCISSORS}`:
-                result = 'YOU WIN 👏🏻☺️🥇 🤝';
-                break;
-            default:
-                result = 'SOMETHING WRONG. TRY AGAIN. 🐛';
-                
-        output.innerHTML = result;
-    });
+        /* Adding animation for pressed buttons and removing it on transition end.*/
+        btnWithKey.classList.add("pressed");
+        function removeTransition(e) {
+            if (!e.propertyName) return;
+            this.classList.remove("pressed");
+        }
+        buttons.forEach((button) =>
+            button.addEventListener("transitionend", removeTransition)
+        );
+    }
 
-};
+    // PointerEvent is for Chrome || MouseEvent is for Firefox
+    if (e instanceof PointerEvent || e instanceof MouseEvent) {
+        if (!e.target.closest(".btn")) return;
+        playerSelection = e.target.closest(".btn");
+        playerSelectionName = e.target.closest(".btn").value;
+        playerSelectionEmoji = e.target.closest(".btn").dataset.emoji;
+    }
+
+    /* the game itself */
+    while (playerScore < 5 && computerScore < 5) {
+        let computerSelection = computerPlay(entities);
+        let computerSelectionName = computerSelection.name;
+        let computerSelectionEmoji = computerSelection.emoji;
+
+        // Adding animation to display computerSelection
+        buttons.forEach((button) => {
+            if (playerSelectionName == computerSelectionName) {
+                setTimeout(() => {
+                    playerSelection.classList.add("tie-animation");
+                }, "100");
+                setTimeout(() => {
+                    playerSelection.classList.remove("tie-animation");
+                }, "700");
+            }
+            if (button.value == computerSelectionName) {
+                setTimeout(() => {
+                    button.classList.add("computer-choice");
+                }, "100");
+                setTimeout(() => {
+                    button.classList.remove("computer-choice");
+                }, "700");
+            }
+        });
+
+        if (playerSelectionName === computerSelectionName) {
+            para.innerText = `It's a tie. ${computerSelectionEmoji} vs ${playerSelectionEmoji}. Nobody wins. \n ${showCurrentScore()}`;
+            return;
+        }
+
+        if (computerSelection.loosesTo.includes(playerSelectionName)) {
+            ++playerScore;
+            para.innerText = `Computer${computerSelectionEmoji} vs Player${playerSelectionEmoji}. Player wins. \n${showCurrentScore()}`;
+        }
+
+        if (!computerSelection.loosesTo.includes(playerSelectionName)) {
+            ++computerScore;
+            para.innerText = `Computer${computerSelectionEmoji} vs Player${playerSelectionEmoji}. Computer wins. \n${showCurrentScore()}`;
+        }
+
+        showFinalScore(computerSelectionEmoji, playerSelectionEmoji);
+        return;
+    }
+    removeListener();
+}
+
+/* Restarting the game */
+let restartBtn = document.querySelector(".restart-btn");
+restartBtn.addEventListener("click", restartGame);
+
+function restartGame() {
+    playerScore = 0;
+    computerScore = 0;
+
+    ["click", "keyup"].forEach((evt) =>
+        document.addEventListener(evt, playRound)
+    );
+
+    para.innerText = "Press the button below!";
+}

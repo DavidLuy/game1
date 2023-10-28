@@ -1,55 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GAME</title>
-    <title>Rock Paper Scissors Spock Lizard</title>
-    <title>JavaScript Timer</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
-  <body>
-    <div class="game-area">
-    <span> YOUR CHOICE </span>
-    <div id="user-options">
-      <div>
-        <input type="radio" id="1" name="option" class="user-option" />
-        <label for="1">⛰️</label>
-      </div>
-      <div>
-        <input type="radio" id="2" name="option" class="user-option" />
-        <label for="2">✂️</label>
-      </div>
-      <div>
-        <input type="radio" id="3" name="option" class="user-option" />
-        <label for="3">🧻</label>
-      </div>
-      <div>
-        <input type="radio" id="4" name="option" class="user-option" />
-        <label for="4">🖖</label>
-      </div>
-      <div>
-        <input type="radio" id="5" name="option" class="user-option" />
-        <label for="5">🦎</label>
-      </div>
-    </div>
-    <span> COMPUTER CHOICE </span>
-    <div id="computer-choice">💭</div>
-    <button id="play">PLAY ▶️</button>
-    <div id="output"></div>
-    </div>
-    <!--Scores-->
-    <div class="score-area">
-        <h6 class="scores">Correct Answers <span id="score">0</span></h6>
-        <h6 class="scores">Incorrect Answers <span id="incorrect">0</span></h6>
-        <h6>It's been <span id="timer">0</span> seconds since you loaded the game <br>
-        Rock Scissors Paper Spock Lizard!</h6>
-    </div>
-    <!-- Game Timer and Copyright-->
-<footer>
-    <h6>Copyright © ⛰️✂️🧻🖖🦎</h6>
-</footer>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="icon" href="" type="" />
+    <style>
+
+    </style>
+
+    <title>Rock, Paper, Scissors, Lizard, Spock </title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="header">Rock, Paper, Scissors, Lizard, Spock </h1>
+        <div class="infopanel">
+            <div class="log">
+                <p>Press the button below!</p>
+            </div>
+            <!--  Rules Help Button when you click on it -->
+            <div class="log-buttons">
+                <img src="./assets/images/rock.png" src="./assets/images/paper.png" height="20px" class="help-btn" />
+                <span class="help-btn-text">
+                    As Sheldon says:
+                    <br />scissors✌️ cuts paper🤚, <br />paper🤚 covers rock👊,
+                    <br />rock👊 crushes lizard🦎, <br />lizard🦎 poisons Spock🖖,
+                    <br />Spock🖖 smashes scissors✌️, <br />scissors✌️ decapitates
+                    lizard🦎, <br />lizard🦎 eats paper🤚, <br />paper🤚 disproves
+                    Spock🖖, <br />Spock🖖 vaporizes rock👊, <br />and as it always has,
+                    rock👊 crushes scissors✌️
+                </span>
+                <!-- Restart Game Button-->
+                <button class="restart-btn">PLAY NEW GAME</button>
+            </div>
+        </div>
+        <h2 class="subheader">Choose your Option! ⛰️✂️🧻🖖🦎</h2>
+        <div class="buttons">
+            <button class="btn" type="button" value="rock" data-code="KeyR" data-emoji="👊">
+                Rock<br />⛰️
+            </button>
+            <button class="btn" type="button" value="paper" data-code="KeyP" data-emoji="🤚">
+                Paper<br />🧻
+            </button>
+            <button class="btn" type="button" value="scissors" data-code="KeyS" data-emoji="✌️">
+                Scissors<br />✂️
+            </button>
+            <button class="btn" type="button" value="lizard" data-code="KeyL" data-emoji="🦎">
+                Lizard<br />🦎
+            </button>
+            <button class="btn" type="button" value="Spock" data-code="KeyV" data-emoji="🖖">
+                Spock<br />🖖
+            </button>
+            <h3 class="subheader" > <span id="timer">0</span>Secs</h3> 
+            <!-- Game timer -->
+        </div>
+        <div>   
+       </div>
     <script type="text/javascript" src="./assets/js/script.js"></script>
     <script>
       setInterval(function () {
@@ -59,5 +68,11 @@
         timerElement.innerHTML = currentTime;
       }, 2000);
     </script>
-  </body>
+    </div>
+</body>
+ <!-- Copyright-->
+    <footer>
+        <p class="subheader">Copyright © ⛰️✂️🧻🖖🦎</p>
+    </footer>
+<script src="./assets/js/script.js"></script>
 </html>
